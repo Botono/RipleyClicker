@@ -4,6 +4,9 @@ const CONSTANTS = {
     BUILDING_TYPES: [
         'Places',
         'Couches',
+        'Beds',
+        'Parks',
+        'Beaches',
     ],
 };
 

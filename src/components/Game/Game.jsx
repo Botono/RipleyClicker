@@ -23,6 +23,21 @@ class Game extends Component {
                 initialCost: Big(100),
                 production: Big(10),
             },
+            Beds: {
+                count: 0,
+                initialCost: Big(1000),
+                production: Big(100),
+            },
+            Parks: {
+                count: 0,
+                initialCost: Big(10000),
+                production: Big(1000),
+            },
+            Beaches: {
+                count: 0,
+                initialCost: Big(100000),
+                production: Big(10000),
+            },
         },
     };
 
@@ -95,7 +110,7 @@ class Game extends Component {
         const buildingInfo = this.state.buildings[name];
         let cost = null;
         if (buildingInfo) {
-            cost = buildingInfo.initialCost.times(Math.pow(CONSTANTS.BUILDING_COST_MULTIPLIER, buildingInfo.count));
+            cost = buildingInfo.initialCost.times(Math.pow(CONSTANTS.BUILDING_COST_MULTIPLIER, buildingInfo.count)).round();
         }
         return cost;
     }
@@ -148,13 +163,13 @@ class Game extends Component {
         return (
             <div>
                 <p>
-                    Currency: {this.state.currency.toString()}
+                    Currency: {this.state.currency.round().toString()}
                 </p>
                 <p>
-                    Per Second: {this.state.perSecond.toString()}
+                    Per Second: {this.state.perSecond.round().toString()}
                 </p>
                 <p>
-                    Per Click: {this.state.perClick.toString()}
+                    Per Click: {this.state.perClick.round().toString()}
                 </p>
                 <p>
                     <input
